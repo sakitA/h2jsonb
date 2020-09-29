@@ -38,11 +38,12 @@ public class H2Test {
             em.persist(je);
             em.getTransaction().commit();
 
-            assert (em.createQuery("select j.id from JsonEntity j", Long.class).getSingleResult())==1L;
+            
         }catch (Exception e){
             e.printStackTrace();
             em.getTransaction().rollback();
         }
+        assert (em.createQuery("select j.id from JsonEntity j", Long.class).getSingleResult())==1L;
     }
 
     @AfterClass
